@@ -1,6 +1,7 @@
 # Preprocess the dataset
 import numpy as np
 import pandas as pd
+import json
 
 class Utils:
 
@@ -29,8 +30,13 @@ class Utils:
         from sklearn.preprocessing import LabelEncoder
         enc = LabelEncoder()
         for i in enc_columns:
+            enc_dict = {}
             enc_column_name = i+"_enc"
             data[enc_column_name] = enc.fit_transform(data[i])
+            enc_dict[enc_column_name] = [[j, v] for j,v in enumerate(list(enc.classes_))]
+            out_file = open(f"artifacts/{i}.json", "w")
+            json.dump(enc_dict, out_file)
+            out_file.close()
         return data
     
     def split_data(self, X, y):
