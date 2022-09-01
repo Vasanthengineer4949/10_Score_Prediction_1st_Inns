@@ -4,8 +4,8 @@ import pandas as pd
 
 class Utils:
 
-    def __init__(self, data_path):
-        self.data = pd.read_csv(data_path)
+    def __init__(self, data):
+        self.data = data
 
     def drop_columns(self, data):
         data = data.drop(
@@ -25,11 +25,11 @@ class Utils:
         return data
 
     def categorical_values_handling(self, data):
-        enc_columns = ['bat_team', 'bowl_team', 'venue', 'batter', 'bowler']
+        enc_columns = ['bat_team', 'bowl_team', 'venue', 'batsman', 'bowler']
         from sklearn.preprocessing import LabelEncoder
         enc = LabelEncoder()
         for i in enc_columns:
-            enc_column_name = i.join("_enc")
+            enc_column_name = i+"_enc"
             data[enc_column_name] = enc.fit_transform(data[i])
         return data
     
