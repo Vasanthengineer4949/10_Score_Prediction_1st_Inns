@@ -1,0 +1,17 @@
+Preprocess
+1. Drop match_id, striker, non_striker, date column
+2. Handle missing values if present - Dropping
+3. Keep only the 8 teams - 'Kolkata Knight Riders', 'Chennai Super Kings', 'Rajasthan Royals',
+                    'Mumbai Indians', 'Kings XI Punjab', 'Royal Challengers Bangalore',
+                    'Delhi Daredevils', 'Sunrisers Hyderabad'
+4. Categorical value handling - batting_team, bowling_team, batsman, bowler, venue
+5. Save the intermediate data and label encoder classes for each column
+
+Model
+1. Train test split
+2. Train the model
+3. Inference the metric
+4. Save the model and metric
+
+App
+1. FastAPI model inference
