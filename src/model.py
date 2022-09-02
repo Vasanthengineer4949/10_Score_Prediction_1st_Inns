@@ -2,9 +2,10 @@ import pandas as pd
 from utils import Utils
 
 data = pd.read_csv("artifacts/preprocessed.csv")
-data = data.drop(["venue", "bat_team", "bowl_team", "batsman", "bowler"], axis=1)
+data = data.drop(["index", "venue", "bat_team", "bowl_team", "batsman", "bowler"], axis=1)
 
 X = data.drop(["total"], axis=1)
+print(X.columns)
 y = data["total"]
 
 util = Utils(data)
